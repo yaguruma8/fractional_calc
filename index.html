@@ -10,15 +10,19 @@
   </head>
   <body>
     <div class="container">
-      <div class="header">header</div>
-      <div class="result">result area</div>
-      <div class="input-display">input display</div>
-      <div class="input-btns">
+      <div id="header">分数電卓</div>
+      <div id="result">result area</div>
+      <div class="input-display">
+        <!-- input display -->
+        <div id="inputDisplay"></div>
+        <div id="clear" class="btn">×</div>
+      </div>
+      <div id="inputBtns">
         <!-- クリアボタン/トグルボタン -->
         <div id="allclear" class="btn"><span>AC</span></div>
-        <div id="toggle" class="btn"></div>
+        <div id="space"></div>
         <!-- 数字 -->
-        <div id="n0" class="btn num"><span>0</span></div>
+        <div id="n0" class="btn num disabled"><span>0</span></div>
         <div id="n1" class="btn num"><span>1</span></div>
         <div id="n2" class="btn num"><span>2</span></div>
         <div id="n3" class="btn num"><span>3</span></div>
@@ -35,7 +39,7 @@
         <div id="sub" class="btn op"><span>−</span></div>
         <div id="mul" class="btn op"><span>×</span></div>
         <div id="div" class="btn op"><span>÷</span></div>
-        <div id="equal" class="btn op"><span>=</span></div>
+        <div id="equal" class="btn op disabled"><span>=</span></div>
       </div>
     </div>
   </body>

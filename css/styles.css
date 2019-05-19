@@ -10,20 +10,41 @@ body {
   grid-template-rows: 40px 120px 60px 1fr;
   grid-gap: 5px;
 }
-.header {
+#header {
   background: pink;
 }
-.result {
+#result {
   background: limegreen;
+  font-size: 20px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
 .input-display {
   background: tomato;
+  display: flex;
 }
-.input-btns {
+#inputDisplay {
+  flex: 1 0 auto;
+  font-size: 20px;
+  padding-left: 10px;
+  /* border: 1px solid #666; */
+  display: flex;
+  align-items: center;
+}
+#clear {
+  flex: 0 0 40px;
+  border: 1px solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inputBtns {
   display: grid;
   grid-template: repeat(5, 1fr) / repeat(4, 1fr);
   grid-template-areas:
-    'allclear toggle toggle div'
+    'allclear space space div'
     'n7  n8  n9  mul'
     'n4  n5  n6  sub'
     'n1  n2  n3  add'
@@ -33,22 +54,28 @@ body {
 .btn {
   box-sizing: border-box;
   border: 1px solid #666;
+  border-radius: 2px;
   background: skyblue;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  user-select: none;
 }
 .btn span {
   display: block;
   font-size: 1.5em;
 }
-
-/* ボタンの順序 */
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+/* グリッド名 */
 #allclear {
   grid-area: allclear;
 }
-#toggle {
-  grid-area: toggle;
+#space {
+  grid-area: space;
 }
 #n0 {
   grid-area: n0;
@@ -101,6 +128,7 @@ body {
 #equal {
   grid-area: equal;
 }
+/* タブレット・PC向け */
 @media (min-width: 570px) {
   .container {
     width: 570px;
