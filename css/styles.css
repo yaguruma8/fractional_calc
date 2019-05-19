@@ -10,17 +10,80 @@ body {
   grid-template-rows: 40px 120px 60px 1fr;
   grid-gap: 5px;
 }
-#header {
+.header {
   background: pink;
+  display: flex;
 }
+.header div:first-child {
+  flex: 1 0 auto;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+/* マニュアルのボタン */
+.header div:last-child {
+  flex: 0 0 100px;
+}
+/* 分数表示 */
 #result {
   background: limegreen;
   font-size: 20px;
   padding-left: 10px;
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  overflow: scroll;
 }
-.input-display {
+
+/* 分数表示グリッド */
+.bunsuBox {
+  margin: 0;
+  padding: 0;
+  display: inline-grid;
+  grid-column-gap: 5px;
+  height: 80px;
+  grid-template: 
+    "seisu bunshi"
+    "seisu bunbo";
+  font-size: 16px;
+}
+.operatorBox {
+  margin: 0 5px;
+  padding: 0;
+  display: inline-flex;
+  height: 80px;
+  /* font-size: 24px; */
+  justify-content: center;
+  align-items: center;
+}
+.seisu {
+  /* background: pink; */
+  grid-area: seisu;
+  justify-self: center;
+  align-self: center;
+}
+.bunbo {
+  /* background: tomato; */
+  grid-area: bunbo;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.bunshi {
+  /* background: lime; */
+  grid-area: bunshi;
+  padding: 0 5px;
+  box-sizing: border-box;
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 入力エリア */
+.input-area {
   background: tomato;
   display: flex;
 }
@@ -28,7 +91,6 @@ body {
   flex: 1 0 auto;
   font-size: 20px;
   padding-left: 10px;
-  /* border: 1px solid #666; */
   display: flex;
   align-items: center;
 }
@@ -40,7 +102,8 @@ body {
   align-items: center;
 }
 
-#inputBtns {
+/* ボタン */
+.inputBtns {
   display: grid;
   grid-template: repeat(5, 1fr) / repeat(4, 1fr);
   grid-template-areas:
@@ -70,7 +133,7 @@ body {
   opacity: 0.5;
   cursor: default;
 }
-/* グリッド名 */
+/* ボタンのグリッド名 */
 #allclear {
   grid-area: allclear;
 }
@@ -128,6 +191,12 @@ body {
 #equal {
   grid-area: equal;
 }
+
+/* モーダルウィンドウ */
+.modal {
+  display: none;
+}
+
 /* タブレット・PC向け */
 @media (min-width: 570px) {
   .container {

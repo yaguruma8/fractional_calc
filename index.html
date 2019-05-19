@@ -9,15 +9,24 @@
     <script src="js/main.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div id="header">分数電卓</div>
-      <div id="result">result area</div>
-      <div class="input-display">
-        <!-- input display -->
+    <section class="container">
+      <div class="header">
+        <div>分数電卓</div>
+        <div class="btn">使い方</div>
+      </div>
+      <div id="result">
+          <!-- <div class="bunsuBox">
+              <div class="seisu">999</div>
+              <div class="bunbo">999</div>
+              <div class="bunshi">1</div>
+          </div>
+          <div class="operatorBox">+</div>      -->
+      </div>
+      <div class="input-area">
         <div id="inputDisplay"></div>
         <div id="clear" class="btn">×</div>
       </div>
-      <div id="inputBtns">
+      <div class="inputBtns">
         <!-- クリアボタン/トグルボタン -->
         <div id="allclear" class="btn"><span>AC</span></div>
         <div id="space"></div>
@@ -41,6 +50,14 @@
         <div id="div" class="btn op"><span>÷</span></div>
         <div id="equal" class="btn op disabled"><span>=</span></div>
       </div>
-    </div>
+    </section>
+    <section id="errorWindow" class="modal hidden">
+      <p>エラーウィンドウ</p>
+      <div id="errClose">閉じる</div>
+    </section>
+    <section id="manualWindow" class="modal hidden">
+      <p>マニュアルウィンドウ</p>
+      <div id="manClose">閉じる</div>
+    </section>
   </body>
 </html>
