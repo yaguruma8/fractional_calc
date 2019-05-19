@@ -32,7 +32,6 @@ body {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  overflow: scroll;
 }
 
 /* 分数表示グリッド */
@@ -107,11 +106,11 @@ body {
   display: grid;
   grid-template: repeat(5, 1fr) / repeat(4, 1fr);
   grid-template-areas:
-    'allclear space space div'
+    'allclear and par div'
     'n7  n8  n9  mul'
     'n4  n5  n6  sub'
     'n1  n2  n3  add'
-    'n0  and par equal';
+    'n0 n0 space equal';
   grid-gap: 5px;
 }
 .btn {
