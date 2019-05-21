@@ -14,6 +14,12 @@
   const classes = classes => {
     return document.getElementsByClassName(classes);
   };
+  const onBtn = function() {
+    this.classList.remove('disabled')
+  }
+  const offBtn = function() {
+    this.classList.add('disabled')
+  }
 
   const createBunsuBox = operand => {
     const bunsuBox = document.createElement('div');
@@ -84,10 +90,18 @@
     changeStr = changeStr.replace('分の', ',');
     // カンマ文字列->文字列の配列->数値の配列
     const strArr = changeStr.split(',');
-    const numArr = strArr.map(v => Number.parseInt(v));
+    const numArr = strArr.map(v => Number.parseInt(v, 10));
     return numArr;
   };
 
+  const openModalWindow = (element) => {
+    element.classList.remove('hidden')
+    id('mask').classList.remove('hidden')
+  }
+  const closeModalWindow = (element) => {
+    element.classList.add('hidden')
+    id('mask').classList.add('hidden')
+  }
   // ------------------------------------------
   // イベントリスナー
   // ------------------------------------------
@@ -176,15 +190,13 @@
         return;
       }
       const input = id('inputDisplay').textContent;
-      // inputDisplayのテキストを検査してfalseならerrorWindow出してreturn
-      if (!isValidInputText(input)) {
-        id('errorWindow').classList.remove('hidden')
-        id('mask').classList.remove('hidden')
-        console.log('不正な入力:エラーウインドウを出す')
+      // inputDisplayのテキストを検査
+      if (isValidInputText(input)) {
+        operand1 = changeInputStrToArr(input);
+      } else {
+        openModalWindow(id('errorWindow'))
         return;
       }
-      // trueなら形式を整えて分数を配列化してoperand1に代入
-      operand1 = changeInputStrToArr(input);
       // operatorに自分の演算子を代入する
       operator = value;
       // #resultに分数boxと演算子boxを追加
@@ -193,9 +205,9 @@
       // inputDisplayのテキストをクリア
       id('inputDisplay').textContent = '';
       // ２回目の入力では演算子は＝以外押せないようにする
-      const opBtns = classes('op');
-      for (let i = 0; i < opBtns.length; i++) {
-        opBtns[i].classList.add('disabled');
+      const operatorBtns = classes('op');
+      for (let i = 0; i < operatorBtns.length; i++) {
+        operatorBtns[i].classList.add('disabled');
       }
       id('equal').classList.remove('disabled');
       // 0を入力不可にする
@@ -209,11 +221,12 @@
       return;
     }
     const input = id('inputDisplay').textContent;
-    if (!isValidInputText(input)) {
-      console.log('不正な入力:エラーウインドウを出す')
+    if (isValidInputText(input)) {
+      operand2 = changeInputStrToArr(input);
+    } else {
+      openModalWindow(id('errorWindow'))
       return;
     }
-    operand2 = changeInputStrToArr(input);
     // #resultにbox追加
     id('result').appendChild(createBunsuBox(operand2));
     id('result').appendChild(createOperatorBox('equal'));
@@ -242,20 +255,16 @@
     if (this.classList.contains('disabled')) {
       return;
     }
-    id('mask').classList.remove('hidden')
-    id('manualWindow').classList.remove('hidden')
+    openModalWindow(id('manualWindow'))
   })
   id('manualClose').addEventListener('click', () => {
-    id('mask').classList.add('hidden');
-    id('manualWindow').classList.add('hidden')
+    closeModalWindow(id('manualWindow'))
   })
   // error
   id('errorClose').addEventListener('click', () => {
-    // inputを空にして数字を初期入力状態にする（0を入力不可）
     id('inputDisplay').textContent = '';
     id('n0').classList.add('disabled');
-    // ウインドウを閉じる
-    id('mask').classList.add('hidden');
-    id('errorWindow').classList.add('hidden')
+
+    closeModalWindow(id('errorWindow'))
   })
 }
