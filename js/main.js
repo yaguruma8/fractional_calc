@@ -60,7 +60,7 @@
     return opBox;
   };
 
-  const isProperInput = str => {
+  const isValidInputText = str => {
     if (
       /^\d{1,4}$/.test(str) ||
       /^\d{1,4}分の\d{1,4}$/.test(str) ||
@@ -177,7 +177,9 @@
       }
       const input = id('inputDisplay').textContent;
       // inputDisplayのテキストを検査してfalseならerrorWindow出してreturn
-      if (!isProperInput(input)) {
+      if (!isValidInputText(input)) {
+        id('errorWindow').classList.remove('hidden')
+        id('mask').classList.remove('hidden')
         console.log('不正な入力:エラーウインドウを出す')
         return;
       }
@@ -207,7 +209,7 @@
       return;
     }
     const input = id('inputDisplay').textContent;
-    if (!isProperInput(input)) {
+    if (!isValidInputText(input)) {
       console.log('不正な入力:エラーウインドウを出す')
       return;
     }
@@ -230,4 +232,30 @@
     }
     id('allclear').classList.remove('disabled');
   });
+
+  // ------------------------------------------
+  // モーダルウィンドウ
+  // ------------------------------------------
+
+  // manual
+  id('manualOpen').addEventListener('click', function() {
+    if (this.classList.contains('disabled')) {
+      return;
+    }
+    id('mask').classList.remove('hidden')
+    id('manualWindow').classList.remove('hidden')
+  })
+  id('manualClose').addEventListener('click', () => {
+    id('mask').classList.add('hidden');
+    id('manualWindow').classList.add('hidden')
+  })
+  // error
+  id('errorClose').addEventListener('click', () => {
+    // inputを空にして数字を初期入力状態にする（0を入力不可）
+    id('inputDisplay').textContent = '';
+    id('n0').classList.add('disabled');
+    // ウインドウを閉じる
+    id('mask').classList.add('hidden');
+    id('errorWindow').classList.add('hidden')
+  })
 }

@@ -21,7 +21,7 @@ body {
   align-items: center;
 }
 /* マニュアルのボタン */
-.header div:last-child {
+#manualOpen {
   flex: 0 0 100px;
 }
 /* 分数表示 */
@@ -192,15 +192,57 @@ body {
 }
 
 /* モーダルウィンドウ */
-.modal {
-  display: none;
+#mask {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-
+.modal {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 90vw;
+  padding: 0 10px 10px 10px;
+  /* min-height: 350px; */
+  background: #fff;
+  margin: 0 auto;
+  top: 30px;
+  left: 0;
+  right: 0;
+  transition: 0.4s;
+}
+.modal h1 {
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid #999;
+  /* border-top: 1px solid black; */
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.modalbtn {
+  background: pink;
+  width: 100px;
+  height: 40px;
+  margin: 5px auto;
+  transition: 0.4s;
+}
+.hidden {
+  transform: translate(0, -1000px) scale(0, 0);
+}
 /* タブレット・PC向け */
 @media (min-width: 570px) {
   .container {
     width: 570px;
     height: 570px;
     margin: 0 auto;
+  }
+  .modal {
+    width: 500px;
+    height: 500px;
   }
 }

@@ -12,7 +12,7 @@
     <section class="container">
       <div class="header">
         <div>分数電卓</div>
-        <div class="btn">使い方</div>
+        <div id="manualOpen" class="btn">使い方</div>
       </div>
       <div id="result">
           <!-- <div class="bunsuBox">
@@ -51,13 +51,26 @@
         <div id="equal" class="btn op disabled"><span>=</span></div>
       </div>
     </section>
+    <div id="mask" class="hidden"></div>
     <section id="errorWindow" class="modal hidden">
-      <p>エラーウィンドウ</p>
-      <div id="errClose">閉じる</div>
+      <h1>不正な入力です</h1>
+      <div id="errorClose" class="btn modalbtn">閉じる</div>
     </section>
     <section id="manualWindow" class="modal hidden">
-      <p>マニュアルウィンドウ</p>
-      <div id="manClose">閉じる</div>
+      <h1>使い方</h1>
+      <p>分数計算専用の電卓です。</p>
+      <p>整数・分母・分子、各4桁までの、二つの数の四則演算に対応します。</p>
+      <p>整数、真分数、仮分数、帯分数に対応しています。</p>
+      <p>分数はボタンを使用し
+        <ul>
+          <li>1</li>
+          <li>2分の3</li>
+          <li>4と6分の5</li>
+        </ul>
+        のように入力してください。
+      </p>
+      <p>演算子のボタンを入力することで自動的に分数表記に変更されます。</p>
+      <div id="manualClose" class="btn modalbtn">閉じる</div>
     </section>
   </body>
 </html>
