@@ -14,12 +14,6 @@
   const classes = classes => {
     return document.getElementsByClassName(classes);
   };
-  const onBtn = function() {
-    this.classList.remove('disabled')
-  }
-  const offBtn = function() {
-    this.classList.add('disabled')
-  }
 
   const createBunsuBox = operand => {
     const bunsuBox = document.createElement('div');
@@ -30,7 +24,7 @@
       seisu.textContent = operand[0];
       bunsuBox.appendChild(seisu);
     }
-    if (!((operand[1] === 1) & (operand[2] === 1))) {
+    if (!(operand[2] === 0)) {
       const bunbo = document.createElement('div');
       bunbo.classList.add('bunbo');
       bunbo.textContent = operand[1];
@@ -81,7 +75,7 @@
     // 「AとB分のC」に直す
     let normaliseStr = str;
     if (/^\d{1,4}$/.test(normaliseStr)) {
-      normaliseStr = `${normaliseStr}と1分の1`;
+      normaliseStr = `${normaliseStr}と1分の0`;
     } else if (/^\d{1,4}分の\d{1,4}$/.test(normaliseStr)) {
       normaliseStr = `0と${normaliseStr}`;
     }
@@ -93,7 +87,44 @@
     const numArr = strArr.map(v => Number.parseInt(v, 10));
     return numArr;
   };
+  const calculateBunsu = (operand1, operand2, operator) => {
+    // 帯分数を仮分数に直す
+    const value1 = taiToKa(operand1);
+    const value2 = taiToKa(operand2); 
+    // operator でswitch して計算
+    let temp;
+    switch (operator) {
+      case 'mul':
+        temp = funcMul(value1, value2)
+        break;
+      case 'div':
+        temp = funcDiv(value1, value2)
+        break;
+    }
+    // 仮分数を帯分数に直す
+    const ans = kaToTai(temp)
+    console.log(temp, ans);
+    return ans
+    // 
+  }
+  const taiToKa = v => {
+    return [0, v[1], (v[0] * v[1] + v[2])]
+  }
+  const kaToTai = v => {
+    return [Math.floor(v[2] / v[1]), v[1], (v[2] % v[1])]
+  }
+  const funcMul = (v1, v2) => {
+    const bunbo = v1[1] * v2[1]
+    const bunshi = v1[2] * v2[2]
+    return [0, bunbo, bunshi]
+  }
+  const funcDiv = (v1, v2) => {
+    const bunbo = v1[1] * v2[2]
+    const bunshi = v1[2] * v2[1]
+    return [0, bunbo, bunshi]
+  }
 
+  // モーダルウィンドウ開閉
   const openModalWindow = (element) => {
     element.classList.remove('hidden')
     id('mask').classList.remove('hidden')
@@ -234,8 +265,9 @@
     id('inputDisplay').textContent = '';
     // 計算
     console.log(operand1, operand2, operator);
-    // answerに答えを代入
+    answer = calculateBunsu(operand1, operand2, operator);
     // #resultにanswerの分数boxを追加
+    id('result').appendChild(createBunsuBox(answer));
     // AC以外押せないようにする
     const btns = classes('btn');
     for (let i = 0; i < btns.length; i++) {
