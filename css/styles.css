@@ -1,10 +1,10 @@
 :root {
   --my-hue: 200;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   background: hsl(var(--my-hue), 80%, 90%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -152,8 +152,8 @@ body {
 /* ボタンのグリッド名 */
 #allclear {
   grid-area: allclear;
-  background: hsl(20, 80%, 50%);
-  border: 1px solid hsl(20, 50%, 50%)
+  background: hsl(calc(var(--my-hue) + 180), 90%, 65%);
+  border: 1px solid hsl(calc(var(--my-hue) + 180), 50%, 50%);
 }
 #space {
   grid-area: space;
