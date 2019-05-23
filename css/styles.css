@@ -1,5 +1,10 @@
+:root {
+  --my-hue: 200;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  background: #eee;
+  background: hsl(var(--my-hue), 80%, 90%);
   margin: 0;
   padding: 0;
 }
@@ -11,7 +16,7 @@ body {
   grid-gap: 5px;
 }
 .header {
-  background: pink;
+  background: hsl(var(--my-hue), 70%, 80%);
   display: flex;
 }
 .header div:first-child {
@@ -26,12 +31,15 @@ body {
 }
 /* 分数表示 */
 #result {
-  background: limegreen;
+  background: hsl(var(--my-hue), 0%, 40%);
   font-size: 20px;
   padding-left: 10px;
   display: flex;
   align-items: center;
   white-space: nowrap;
+  border-radius: 2px;
+  box-sizing: border-box;
+  border: 10px double hsl(var(--my-hue), 0%, 70%)
 }
 
 /* 分数表示グリッド */
@@ -45,6 +53,7 @@ body {
     "seisu bunshi"
     "seisu bunbo";
   font-size: 16px;
+  color: #fff;
 }
 .operatorBox {
   margin: 0 5px;
@@ -54,6 +63,7 @@ body {
   /* font-size: 24px; */
   justify-content: center;
   align-items: center;
+  color: #fff;
 }
 .seisu {
   /* background: pink; */
@@ -75,7 +85,7 @@ body {
   grid-area: bunshi;
   padding: 0 5px;
   box-sizing: border-box;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,22 +93,24 @@ body {
 
 /* 入力エリア */
 .input-area {
-  background: tomato;
   display: flex;
 }
 #inputDisplay {
   flex: 1 0 auto;
   font-size: 20px;
   padding-left: 10px;
+  border-radius: 2px;
+  background: hsl(var(--my-hue), 50%, 50%);
   display: flex;
   align-items: center;
+  color: #fff;
 }
 #clear {
   flex: 0 0 40px;
-  border: 1px solid #666;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: hsl(200, 100%, 80%); */
 }
 
 /* ボタン */
@@ -115,9 +127,9 @@ body {
 }
 .btn {
   box-sizing: border-box;
-  border: 1px solid #666;
+  border: 1px solid hsl(var(--my-hue), 50%, 50%);
   border-radius: 2px;
-  background: skyblue;
+  background: hsl(var(--my-hue), 90%, 65%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,13 +140,20 @@ body {
   display: block;
   font-size: 1.5em;
 }
+.btn.op {
+  background: hsl(var(--my-hue), 100%, 90%);
+  border: 1px solid hsl(var(--my-hue), 80%, 40%);
+}
 .disabled {
   opacity: 0.5;
+  /* background: hsl(200, 20%, 90%) */
   cursor: default;
 }
 /* ボタンのグリッド名 */
 #allclear {
   grid-area: allclear;
+  background: hsl(20, 80%, 50%);
+  border: 1px solid hsl(20, 50%, 50%)
 }
 #space {
   grid-area: space;
