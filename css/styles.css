@@ -1,3 +1,6 @@
+:root {
+  --app-height: 570px;
+}
 body {
   background: #eee;
   margin: 0;
@@ -6,8 +9,8 @@ body {
 .container {
   display: grid;
   width: 100vw;
-  height: calc(100vh - 120px);
-  grid-template-rows: 40px 100px 50px auto;
+  height: var(--app-height);
+  grid-template-rows: 40px 120px 50px auto;
   grid-gap: 5px;
 }
 .header {
@@ -229,7 +232,7 @@ body {
 @media (min-width: 570px) {
   .container {
     width: 570px;
-    height: 570px;
+    height: var(--app-height);
     margin: 0 auto;
   }
   .modal {

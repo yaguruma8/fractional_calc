@@ -1,5 +1,14 @@
 'use strict';
 {
+  window.onload = () => {
+    if (window.innerWidth < 570) {
+      document.documentElement.style.setProperty('--app-height', `${
+        window.innerHeight
+      }px`);
+    }
+  };
+}
+{
   console.log('hello, world!');
   // 変数
   let operand1 = null;
@@ -90,49 +99,49 @@
   const calculateBunsu = (operand1, operand2, operator) => {
     // 帯分数を仮分数に直す
     const value1 = taiToKa(operand1);
-    const value2 = taiToKa(operand2); 
+    const value2 = taiToKa(operand2);
     // operator でswitch して計算
     let temp;
     switch (operator) {
       case 'mul':
-        temp = funcMul(value1, value2)
+        temp = funcMul(value1, value2);
         break;
       case 'div':
-        temp = funcDiv(value1, value2)
+        temp = funcDiv(value1, value2);
         break;
     }
     // 仮分数を帯分数に直す
-    const ans = kaToTai(temp)
+    const ans = kaToTai(temp);
     console.log(temp, ans);
-    return ans
-    // 
-  }
+    return ans;
+    //
+  };
   const taiToKa = v => {
-    return [0, v[1], (v[0] * v[1] + v[2])]
-  }
+    return [0, v[1], v[0] * v[1] + v[2]];
+  };
   const kaToTai = v => {
-    return [Math.floor(v[2] / v[1]), v[1], (v[2] % v[1])]
-  }
+    return [Math.floor(v[2] / v[1]), v[1], v[2] % v[1]];
+  };
   const funcMul = (v1, v2) => {
-    const bunbo = v1[1] * v2[1]
-    const bunshi = v1[2] * v2[2]
-    return [0, bunbo, bunshi]
-  }
+    const bunbo = v1[1] * v2[1];
+    const bunshi = v1[2] * v2[2];
+    return [0, bunbo, bunshi];
+  };
   const funcDiv = (v1, v2) => {
-    const bunbo = v1[1] * v2[2]
-    const bunshi = v1[2] * v2[1]
-    return [0, bunbo, bunshi]
-  }
+    const bunbo = v1[1] * v2[2];
+    const bunshi = v1[2] * v2[1];
+    return [0, bunbo, bunshi];
+  };
 
   // モーダルウィンドウ開閉
-  const openModalWindow = (element) => {
-    element.classList.remove('hidden')
-    id('mask').classList.remove('hidden')
-  }
-  const closeModalWindow = (element) => {
-    element.classList.add('hidden')
-    id('mask').classList.add('hidden')
-  }
+  const openModalWindow = element => {
+    element.classList.remove('hidden');
+    id('mask').classList.remove('hidden');
+  };
+  const closeModalWindow = element => {
+    element.classList.add('hidden');
+    id('mask').classList.add('hidden');
+  };
   // ------------------------------------------
   // イベントリスナー
   // ------------------------------------------
@@ -225,7 +234,7 @@
       if (isValidInputText(input)) {
         operand1 = changeInputStrToArr(input);
       } else {
-        openModalWindow(id('errorWindow'))
+        openModalWindow(id('errorWindow'));
         return;
       }
       // operatorに自分の演算子を代入する
@@ -255,7 +264,7 @@
     if (isValidInputText(input)) {
       operand2 = changeInputStrToArr(input);
     } else {
-      openModalWindow(id('errorWindow'))
+      openModalWindow(id('errorWindow'));
       return;
     }
     // #resultにbox追加
@@ -287,16 +296,16 @@
     if (this.classList.contains('disabled')) {
       return;
     }
-    openModalWindow(id('manualWindow'))
-  })
+    openModalWindow(id('manualWindow'));
+  });
   id('manualClose').addEventListener('click', () => {
-    closeModalWindow(id('manualWindow'))
-  })
+    closeModalWindow(id('manualWindow'));
+  });
   // error
   id('errorClose').addEventListener('click', () => {
     id('inputDisplay').textContent = '';
     id('n0').classList.add('disabled');
 
-    closeModalWindow(id('errorWindow'))
-  })
+    closeModalWindow(id('errorWindow'));
+  });
 }
