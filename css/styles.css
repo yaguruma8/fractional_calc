@@ -56,13 +56,11 @@ body {
   align-items: center;
 }
 .seisu {
-  /* background: pink; */
   grid-area: seisu;
   justify-self: center;
   align-self: center;
 }
 .bunbo {
-  /* background: tomato; */
   grid-area: bunbo;
   padding: 0 5px;
   display: flex;
@@ -71,7 +69,6 @@ body {
 
 }
 .bunshi {
-  /* background: lime; */
   grid-area: bunshi;
   padding: 0 5px;
   box-sizing: border-box;
@@ -110,7 +107,7 @@ body {
     'n7  n8  n9  mul'
     'n4  n5  n6  sub'
     'n1  n2  n3  add'
-    'n0 n0 space equal';
+    'n0 n0 . equal';
   grid-gap: 5px;
 }
 .btn {
@@ -135,9 +132,6 @@ body {
 /* ボタンのグリッド名 */
 #allclear {
   grid-area: allclear;
-}
-#space {
-  grid-area: space;
 }
 #n0 {
   grid-area: n0;
@@ -206,7 +200,6 @@ body {
   border-radius: 5px;
   width: 90vw;
   padding: 0 10px 10px 10px;
-  /* min-height: 350px; */
   background: #fff;
   margin: 0 auto;
   top: 30px;
@@ -219,13 +212,11 @@ body {
   font-size: 20px;
   text-align: center;
   border-bottom: 1px solid #999;
-  /* border-top: 1px solid black; */
   margin: 0;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 .modalbtn {
-  background: pink;
   width: 100px;
   height: 40px;
   margin: 5px auto;

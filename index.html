@@ -11,25 +11,17 @@
   <body>
     <section class="container">
       <div class="header">
-        <div>分数電卓</div>
-        <div id="manualOpen" class="btn">使い方</div>
+        <div>Fractional calculator</div>
+        <div id="manualOpen" class="btn">manual</div>
       </div>
-      <div id="result">
-          <!-- <div class="bunsuBox">
-              <div class="seisu">999</div>
-              <div class="bunbo">999</div>
-              <div class="bunshi">1</div>
-          </div>
-          <div class="operatorBox">+</div>      -->
-      </div>
+      <div id="result"></div>
       <div class="input-area">
         <div id="inputDisplay"></div>
         <div id="clear" class="btn">×</div>
       </div>
       <div class="inputBtns">
-        <!-- クリアボタン/トグルボタン -->
+        <!-- クリアボタン -->
         <div id="allclear" class="btn"><span>AC</span></div>
-        <div id="space"></div>
         <!-- 数字 -->
         <div id="n0" class="btn num disabled"><span>0</span></div>
         <div id="n1" class="btn num"><span>1</span></div>
@@ -53,23 +45,21 @@
     </section>
     <div id="mask" class="hidden"></div>
     <section id="errorWindow" class="modal hidden">
-      <h1>不正な入力です</h1>
+      <h1>入力をやり直してください</h1>
+      <div>
+        <p>整数・分母・分子は各4桁までです。</p>
+        <p>「A」「B分のC」「AとB分のC」以外の形式の入力はクリアされます。</p>
+      </div>
       <div id="errorClose" class="btn modalbtn">閉じる</div>
     </section>
     <section id="manualWindow" class="modal hidden">
       <h1>使い方</h1>
-      <p>分数計算専用の電卓です。</p>
-      <p>整数・分母・分子、各4桁までの、二つの数の四則演算に対応します。</p>
-      <p>整数、真分数、仮分数、帯分数に対応しています。</p>
-      <p>分数はボタンを使用し
-        <ul>
-          <li>1</li>
-          <li>2分の3</li>
-          <li>4と6分の5</li>
-        </ul>
-        のように入力してください。
-      </p>
-      <p>演算子のボタンを入力することで自動的に分数表記に変更されます。</p>
+      <p>分数の形式で計算できる電卓です。</p>
+      <p>「AとB分のC」の順番で入力して演算子のボタンを押してください。自動的に分数表記に変更されます。</p>
+      <p></p>
+      <p>答えは帯分数で表記します。</p>
+      <p>整数のみ、分数のみ、仮分数の計算にも対応しています。</p>
+
       <div id="manualClose" class="btn modalbtn">閉じる</div>
     </section>
   </body>
