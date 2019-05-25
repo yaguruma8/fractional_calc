@@ -103,6 +103,12 @@
     // operator でswitch して計算
     let temp;
     switch (operator) {
+      case 'add':
+        temp = funcAdd(value1, value2);
+        break;
+      case 'sub':
+        temp = funcsub(value1, value2);
+        break;
       case 'mul':
         temp = funcMul(value1, value2);
         break;
@@ -122,6 +128,16 @@
   const kaToTai = v => {
     return [Math.floor(v[2] / v[1]), v[1], v[2] % v[1]];
   };
+  const funcAdd = (v1, v2) => {
+    const bunbo = v1[1] * v2[1];
+    const bunshi = (v1[2] * v2[1]) + (v2[2] * v1[1])
+    return[0, bunbo, bunshi]
+  }
+  const funcsub = (v1, v2) => {
+    const bunbo = v1[1] * v2[1];
+    const bunshi = (v1[2] * v2[1]) - (v2[2] * v1[1])
+    return[0, bunbo, bunshi]
+  }
   const funcMul = (v1, v2) => {
     const bunbo = v1[1] * v2[1];
     const bunshi = v1[2] * v2[2];
