@@ -4,7 +4,8 @@
 
 body {
   background: hsl(var(--my-hue), 80%, 90%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: "游ゴシック" , "Yu Gothic" , "メイリオ" , "Meiryo", "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ ProN W3" , "Hiragino Kaku Gothic ProN" , "Meiryo UI" , sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -14,10 +15,11 @@ body {
   height: calc(100vh - 120px);
   grid-template-rows: 40px 100px 50px auto;
   grid-gap: 5px;
+  box-sizing: border-box;
 }
 .header {
-  background: hsl(var(--my-hue), 70%, 80%);
   display: flex;
+  background: hsl(var(--my-hue), 90%, 80%);
 }
 .header div:first-child {
   flex: 1 0 auto;
@@ -31,15 +33,15 @@ body {
 }
 /* 分数表示 */
 #result {
-  background: hsl(var(--my-hue), 0%, 40%);
+  background: dimgray;
   font-size: 20px;
   padding-left: 10px;
   display: flex;
   align-items: center;
   white-space: nowrap;
-  border-radius: 2px;
+  border-radius: 10px;
   box-sizing: border-box;
-  border: 10px double hsl(var(--my-hue), 0%, 70%)
+  border: 10px inset hsl(var(--my-hue), 90%, 40%);
 }
 
 /* 分数表示グリッド */
@@ -54,6 +56,7 @@ body {
     "seisu bunbo";
   font-size: 16px;
   color: #fff;
+  font-weight: bold;
 }
 .operatorBox {
   margin: 0 5px;
@@ -99,11 +102,12 @@ body {
   flex: 1 0 auto;
   font-size: 20px;
   padding-left: 10px;
-  border-radius: 2px;
-  background: hsl(var(--my-hue), 50%, 50%);
+  box-sizing: border-box;
+  background: hsl(var(--my-hue), 90%, 80%);
+  border: 1px solid hsl(var(--my-hue), 90%, 40%);
   display: flex;
   align-items: center;
-  color: #fff;
+  /* color: #fff; */
 }
 #clear {
   flex: 0 0 40px;
@@ -115,6 +119,11 @@ body {
 
 /* ボタン */
 .inputBtns {
+  padding: 30px 10px;
+  box-sizing: border-box;
+  /* border: 4px solid hsl(var(--my-hue), 80%, 50%); */
+  background: hsl(var(--my-hue), 80%, 60%);
+  border-radius: 30px;
   display: grid;
   grid-template: repeat(5, 1fr) / repeat(4, 1fr);
   grid-template-areas:
@@ -127,9 +136,10 @@ body {
 }
 .btn {
   box-sizing: border-box;
-  border: 1px solid hsl(var(--my-hue), 50%, 50%);
-  border-radius: 2px;
-  background: hsl(var(--my-hue), 90%, 65%);
+  border-radius: 5px;
+  border: 2px outset hsl(var(--my-hue), 90%, 40%);
+  background: hsl(var(--my-hue), 90%, 40%);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,8 +151,10 @@ body {
   font-size: 1.5em;
 }
 .btn.op {
-  background: hsl(var(--my-hue), 100%, 90%);
-  border: 1px solid hsl(var(--my-hue), 80%, 40%);
+  background: hsl(var(--my-hue), 90%, 90%);
+  border: 2px outset hsl(var(--my-hue), 90%, 90%);
+  color: hsl(var(--my-hue), 90%, 40%);
+  font-weight: bold;
 }
 .disabled {
   opacity: 0.5;
@@ -152,8 +164,8 @@ body {
 /* ボタンのグリッド名 */
 #allclear {
   grid-area: allclear;
-  background: hsl(calc(var(--my-hue) + 180), 90%, 65%);
-  border: 1px solid hsl(calc(var(--my-hue) + 180), 50%, 50%);
+  background: hsl(calc(var(--my-hue)), 90%, 30%);
+  border: 2px outset hsl(calc(var(--my-hue)), 90%, 30%);
 }
 #space {
   grid-area: space;
@@ -244,7 +256,6 @@ body {
   margin-bottom: 20px;
 }
 .modalbtn {
-  background: pink;
   width: 100px;
   height: 40px;
   margin: 5px auto;
