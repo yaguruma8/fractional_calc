@@ -98,8 +98,8 @@
   };
   const calculateBunsu = (operand1, operand2, operator) => {
     // 帯分数を仮分数に直す
-    const value1 = taiToKa(operand1);
-    const value2 = taiToKa(operand2);
+    const value1 = taiBunsuToKaBunsu(operand1);
+    const value2 = taiBunsuToKaBunsu(operand2);
     // operator でswitch して計算
     let temp;
     switch (operator) {
@@ -117,15 +117,20 @@
         break;
     }
     // 仮分数を帯分数に直す
-    const ans = kaToTai(temp);
+    temp = kaBunsuToTaiBunsu(temp);
+    console.log(temp)
+    // 約分
+    const ans = devideBunsu(temp)
     console.log(temp, ans);
     return ans;
     //
   };
-  const taiToKa = v => {
+  // 帯分数 -> 仮分数
+  const taiBunsuToKaBunsu = v => {
     return [0, v[1], v[0] * v[1] + v[2]];
   };
-  const kaToTai = v => {
+  // 仮分数 -> 帯分数
+  const kaBunsuToTaiBunsu = v => {
     return [Math.floor(v[2] / v[1]), v[1], v[2] % v[1]];
   };
   const funcAdd = (v1, v2) => {
@@ -148,7 +153,24 @@
     const bunshi = v1[2] * v2[1];
     return [0, bunbo, bunshi];
   };
-
+  // 最大公約数（ユークリッドの互除法）
+  const euclideanAlgorithm = (v1, v2) => {
+    const num = v1 % v2
+    if (num === 0) {
+      return v2
+    }
+    euclideanAlgorithm(v2, num)
+  };
+  // 約分
+  const devideBunsu = arr => {
+    // 分子が0 = 整数になる時は何もしない
+    if (arr[2] === 0) {
+      return arr
+    }
+    const gcd = euclideanAlgorithm(arr[1], arr[2])
+    const newArr = [arr[0], (arr[1] / gcd), (arr[2] / gcd)]
+    return newArr
+  }
   // モーダルウィンドウ開閉
   const openModalWindow = element => {
     element.classList.remove('hidden');
