@@ -118,10 +118,8 @@
     }
     // 仮分数を帯分数に直す
     temp = kaBunsuToTaiBunsu(temp);
-    console.log(temp)
     // 約分
     const ans = devideBunsu(temp)
-    console.log(temp, ans);
     return ans;
     //
   };
@@ -159,7 +157,7 @@
     if (num === 0) {
       return v2
     }
-    euclideanAlgorithm(v2, num)
+    return euclideanAlgorithm(v2, num)
   };
   // 約分
   const devideBunsu = arr => {
@@ -311,7 +309,6 @@
     // inputDisplayをクリア
     id('inputDisplay').textContent = '';
     // 計算
-    console.log(operand1, operand2, operator);
     answer = calculateBunsu(operand1, operand2, operator);
     // #resultにanswerの分数boxを追加
     id('result').appendChild(createBunsuBox(answer));
