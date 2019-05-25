@@ -11,8 +11,8 @@
   <body>
     <section class="container">
       <div class="header">
-        <div>Fractional calculator</div>
-        <div id="manualOpen" class="btn">manual</div>
+        <div>Fractional Calculator (分数電卓) ver0.1</div>
+        <div id="manualOpen" class="btn">使い方</div>
       </div>
       <div id="result"></div>
       <div class="input-area">
@@ -48,18 +48,26 @@
       <h1>入力をやり直してください</h1>
       <div>
         <p>整数・分母・分子は各4桁までです。</p>
-        <p>「A」「B分のC」「AとB分のC」以外の形式の入力はクリアされます。</p>
+        <p>規定の形式以外の入力はクリアされます。</p>
+        <ul>
+          <li>{数字}</li>
+          <li>{数字}分の{数字}</li>
+          <li>{数字}と{数字}分の{数字}</li>
+        </ul>
+        <p>上記の形式で入力してください。</p>
       </div>
       <div id="errorClose" class="btn modalbtn">閉じる</div>
     </section>
     <section id="manualWindow" class="modal hidden">
       <h1>使い方</h1>
-      <p>分数の形式で計算できる電卓です。</p>
-      <p>「AとB分のC」の順番で入力して演算子のボタンを押してください。自動的に分数表記に変更されます。</p>
-      <p></p>
+      <p>分数の形式で計算する電卓です。<br>下記の形式の入力に対応しています。</p>
+      <ul>
+        <li>{数字}</li>
+        <li>{数字}分の{数字}</li>
+        <li>{数字}と{数字}分の{数字}</li>
+      </ul>
+      <p>{数字}は各4桁まで対応しています。</p>
       <p>答えは帯分数で表記します。</p>
-      <p>整数のみ、分数のみ、仮分数の計算にも対応しています。</p>
-
       <div id="manualClose" class="btn modalbtn">閉じる</div>
     </section>
   </body>
