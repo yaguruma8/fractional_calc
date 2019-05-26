@@ -11,7 +11,7 @@
   <body>
     <section class="container">
       <div class="header">
-        <div>Fractional Calculator (分数電卓) ver0.1</div>
+        <div>Fractional Calculator</div>
         <div id="manualOpen" class="btn">使い方</div>
       </div>
       <div id="result"></div>
@@ -36,11 +36,11 @@
         <div id="and" class="btn num"><span>と</span></div>
         <div id="par" class="btn num"><span>分の</span></div>
         <!-- 演算子 -->
-        <div id="add" class="btn op"><span>+</span></div>
+        <div id="add" class="btn op"><span>＋</span></div>
         <div id="sub" class="btn op"><span>−</span></div>
         <div id="mul" class="btn op"><span>×</span></div>
         <div id="div" class="btn op"><span>÷</span></div>
-        <div id="equal" class="btn op disabled"><span>=</span></div>
+        <div id="equal" class="btn op disabled"><span>＝</span></div>
       </div>
     </section>
     <div id="mask" class="hidden"></div>
@@ -68,6 +68,17 @@
       </ul>
       <p>{数字}は各4桁まで対応しています。</p>
       <p>答えは帯分数で表記します。</p>
+      <p>カラー変更</p>
+      <div id="colorChange">
+        <input type="radio" name="color" id="color1" value="200" checked>
+        <label for="color1" class="btn">青</label>
+        <input type="radio" name="color" id="color2" value="10">
+        <label for="color2" class="btn">赤</label>
+        <input type="radio" name="color" id="color3" value="140">
+        <label for="color3" class="btn">緑</label>
+        <input type="radio" name="color" id="color4" value="60">
+        <label for="color4" class="btn">黄</label>
+      </div>
       <div id="manualClose" class="btn modalbtn">閉じる</div>
     </section>
   </body>

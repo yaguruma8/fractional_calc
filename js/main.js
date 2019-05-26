@@ -1,5 +1,6 @@
 'use strict';
 {
+  // ロード時に高さを設定（PC向け570px スマホはinnerHightで画面に合わせる）
   window.onload = () => {
     if (window.innerWidth < 570) {
       document.documentElement.style.setProperty('--app-height', `${
@@ -7,9 +8,7 @@
       }px`);
     }
   };
-}
-{
-  console.log('hello, world!');
+
   // 変数
   let operand1 = null;
   let operand2 = null;
@@ -334,6 +333,8 @@
     openModalWindow(id('manualWindow'));
   });
   id('manualClose').addEventListener('click', () => {
+    const checked = document.querySelector('#colorChange input:checked');
+    document.documentElement.style.setProperty('--my-hue', checked.value);
     closeModalWindow(id('manualWindow'));
   });
   // error
