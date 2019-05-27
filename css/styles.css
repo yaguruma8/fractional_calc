@@ -11,6 +11,7 @@ body {
 }
 .container {
   background: hsl(var(--my-hue), 80%, 90%);
+  border: 1px solid #ccc;
   display: grid;
   width: 100vw;
   height: var(--app-height);

@@ -1,6 +1,7 @@
 'use strict';
 {
-  // ロード時に高さを設定（PC向け570px スマホはinnerHightで画面に合わせる）
+  // ロード時に高さを設定
+  // （--app-height初期設定680px 幅570px未満の時は高さをinnerHightに合わせる）
   window.onload = () => {
     if (window.innerWidth < 570) {
       document.documentElement.style.setProperty('--app-height', `${
@@ -27,12 +28,14 @@
     const bunsuBox = document.createElement('div');
     bunsuBox.classList.add('bunsuBox');
     if (operand[0] !== 0) {
+      // 整数が0でなければ整数部を作る
       const seisu = document.createElement('div');
       seisu.classList.add('seisu');
       seisu.textContent = operand[0];
       bunsuBox.appendChild(seisu);
     }
-    if (!(operand[2] === 0)) {
+    if (operand[2] !== 0) {
+      // 分子が0でなければ分数部を作る
       const bunbo = document.createElement('div');
       bunbo.classList.add('bunbo');
       bunbo.textContent = operand[1];
