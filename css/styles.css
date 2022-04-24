@@ -252,7 +252,7 @@ body {
   transition: 0.2s;
 }
 .hidden {
-  transform: translate(0, -1000px);
+  transform: translate(0, -8000px);
 }
 /* カラーチェンジ */
 #colorChange {
